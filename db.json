@@ -1,0 +1,42 @@
+{
+  "posts": [
+    {
+      "HU": "",
+      "id": 2
+    },
+    {
+      "title": "uhg",
+      "body": "new",
+      "id": 3
+    },
+    {
+      "title": "yuy",
+      "body": "new",
+      "id": 4
+    },
+    {
+      "title": "YH",
+      "body": "new",
+      "id": 5
+    },
+    {
+      "title": "UH",
+      "body": "new",
+      "id": 6
+    },
+    {
+      "title": "UH",
+      "body": "new",
+      "id": 7
+    },
+    {
+      "title": "trrtrt",
+      "body": "new",
+      "id": 8
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}
