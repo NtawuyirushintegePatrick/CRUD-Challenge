@@ -1,26 +1,6 @@
 {
   "posts": [
     {
-      "title": "task",
-      "body": "new",
-      "id": 15
-    },
-    {
-      "title": "task1",
-      "body": "new",
-      "id": 16
-    },
-    {
-      "title": "task2",
-      "body": "new",
-      "id": 17
-    },
-    {
-      "title": "task3",
-      "body": "new",
-      "id": 18
-    },
-    {
       "title": "task4",
       "body": "new",
       "id": 19
@@ -31,112 +11,13 @@
       "id": 20
     },
     {
-      "title": "task6",
-      "body": "new",
-      "id": 21
-    },
-    {
       "title": "task7",
       "body": "new",
       "id": 22
     },
     {
-      "title": "task8",
-      "body": "new",
+      "title": "task",
       "id": 23
-    },
-    {
-      "title": "task9",
-      "body": "new",
-      "id": 24
-    },
-    {
-      "title": "task10",
-      "body": "new",
-      "id": 26
-    },
-    {
-      "title": "task11",
-      "body": "new",
-      "id": 27
-    },
-    {
-      "title": "bbbbbb",
-      "body": "new",
-      "id": 28
-    },
-    {
-      "title": [],
-      "body": "new",
-      "id": 29
-    },
-    {
-      "title": "kkkkkk",
-      "id": 30
-    },
-    {
-      "title": "uuuu",
-      "id": 31
-    },
-    {
-      "title": "rrrrr",
-      "id": 32
-    },
-    {
-      "title": "y",
-      "id": 33
-    },
-    {
-      "title": "hi",
-      "id": 34
-    },
-    {
-      "title": "rr",
-      "id": 35
-    },
-    {
-      "title": [],
-      "id": 36
-    },
-    {
-      "title": [],
-      "id": 37
-    },
-    {
-      "title": [],
-      "id": 38
-    },
-    {
-      "title": [],
-      "id": 39
-    },
-    {
-      "title": "rrr",
-      "id": 40
-    },
-    {
-      "title": "rrr",
-      "id": 41
-    },
-    {
-      "title": "rrr",
-      "id": 42
-    },
-    {
-      "title": "rrr",
-      "id": 43
-    },
-    {
-      "title": "rrr",
-      "id": 44
-    },
-    {
-      "title": "rrr",
-      "id": 45
-    },
-    {
-      "title": "rrr",
-      "id": 46
     }
   ],
   "employee": [
@@ -173,15 +54,6 @@
       "id": 5
     },
     {
-      "Names": "Ntawuyirushintege Patrick",
-      "Telephone": "0786265403",
-      "Position": "Waiter",
-      "Email": [],
-      "Password": "mmmmm",
-      "Rpassword": "mmmmm",
-      "id": 6
-    },
-    {
       "Names": "Dusabimana Arthur Junior",
       "Telephone": "0786265400",
       "Position": "Waiter",
@@ -209,24 +81,6 @@
       "id": 22
     },
     {
-      "Names": [],
-      "Telephone": [],
-      "Position": [],
-      "Email": [],
-      "Password": [],
-      "Rpassword": [],
-      "id": 23
-    },
-    {
-      "Names": [],
-      "Telephone": [],
-      "Position": [],
-      "Email": [],
-      "Password": [],
-      "Rpassword": [],
-      "id": 24
-    },
-    {
       "Names": "fisto",
       "Telephone": "34534534",
       "Position": "gjngh",
@@ -234,6 +88,33 @@
       "Password": "3434",
       "Rpassword": "4234",
       "id": 25
+    },
+    {
+      "Names": "fisto",
+      "Telephone": "dfsdgdf",
+      "Position": "trrtr",
+      "Email": "ntawuyirushintegepatrick@gmail.comMontanna827",
+      "Password": "fgdg",
+      "Rpassword": "fgdfg",
+      "id": 26
+    },
+    {
+      "Names": "fisto",
+      "Telephone": "dfsdgdf",
+      "Position": "trrtr",
+      "Email": "ntawuyirushintegepatrick@gmail.comMontanna827",
+      "Password": "fgdg",
+      "Rpassword": "fgdfg",
+      "id": 27
+    },
+    {
+      "Names": "jelemiah",
+      "Telephone": "0786265401",
+      "Position": "Waiter",
+      "Email": "jeancyifuzodamas@gmail.com",
+      "Password": "12345",
+      "Rpassword": "12345",
+      "id": 28
     }
   ]
 }

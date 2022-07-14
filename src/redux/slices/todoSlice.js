@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getTodos } from "../thunk/todoThunk";
+import { createTodo, deleteTodos, getTodos, updateTodos } from "../thunk/todoThunk";
+
 // import { fetchAllTodos } from "../thunk/todoThunk";
 
 const initialState = {
@@ -28,6 +29,54 @@ const todoSlice = createSlice({
               state.status = 'failed'
               state.error = payload.error || payload.toString()
             },
+
+
+            
+    [createTodo.pending]: (state) => {
+        state.status = 'loading'
+      },
+      [createTodo.fulfilled]: (state, { payload }) => {
+        state.status = 'success'
+        state.createMessage = payload.message
+      },
+  
+      [createTodo.rejected]: (state, { payload }) => {
+        state.status = 'failed'
+        state.error = payload.error || payload.toString()
+      },
+
+      
+
+      [updateTodos.pending]: (state) => {
+        state.status = 'loading'
+    },
+    [updateTodos.fulfilled]: (state, { payload }) => {
+        state.status = 'success'
+        state.updateMessage = payload.message
+    },
+
+    [updateTodos.rejected]: (state, { payload }) => {
+        state.status = 'failed'
+        state.error = payload.error || payload.toString()
+    },
+
+
+
+    [deleteTodos.pending]: (state) => {
+        state.status = 'loading'
+    },
+    [deleteTodos.fulfilled]: (state, { payload }) => {
+        state.status = 'success'
+        
+        state.deleteMessage = payload.message
+    },
+
+    [deleteTodos.rejected]: (state, { payload }) => {
+        state.status = 'failed'
+        state.error = payload.error || payload.toString()
+    },
+
+
         
           },
         })
@@ -35,7 +84,7 @@ const todoSlice = createSlice({
       
 
 export const todoSelector = (state) => state.todos
-export const {message} = todoSlice.actions
+// export const {message} = todoSlice.actions
 export const todoReducer = todoSlice.reducer;
 
 

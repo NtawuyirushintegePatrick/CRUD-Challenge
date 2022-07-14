@@ -87,10 +87,10 @@ const Admin = () => {
   return (
     <>
 
-      {showModel ? <Register /> : ""}
+      {/* {showModel ? <Register /> : ""} */}
       <div className='admin'>
         <div className='alignBtn'>
-          <button type="submit" className="AddBtn" onClick={handleShowModel}>Add Employee</button>
+        <button type="submit" className="AddBtn"><a href="Register">Add Employee</a></button>
           <button type="submit" className="AddBtn" onClick={Pdf}>Download PDF file</button>
           <button type="submit" className="AddBtn"><CSVLink data={Csv}>Download Csv</CSVLink></button>
         </div>
@@ -113,9 +113,7 @@ const Admin = () => {
                   <td>{data.Telephone}</td>
                   <td>{data.Position}</td>
                   <td>{data.Email}</td>
-                  {/* <td>{data.Password}</td> */}
-                  {/* <td>{data.Rpassword}</td> */}
-
+          
                 </tr>
               ))}
 

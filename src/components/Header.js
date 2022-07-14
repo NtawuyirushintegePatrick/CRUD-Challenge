@@ -8,9 +8,9 @@ const Header= () => {
       <h2>Klab EMS</h2>
       <div className='nav'>
         <a href='register'>Register</a>
-        <a href='employees'>Employees</a>
+        {/* <a href='employees'>Employees</a> */}
         <a href='admin'>Admin</a>
-        <a href='todo'>Todo</a>
+        <a href='todo'>Tasks</a>
         <a href='login'>Login</a>
       </div>
     </header>

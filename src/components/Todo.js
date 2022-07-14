@@ -1,15 +1,15 @@
 
-import axios from "axios";
+// import axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
+// import Box from '@mui/material/Box';
+// import Modal from '@mui/material/Modal';
 // import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import Typography from '@mui/material/Typography';
+// import TextField from '@mui/material/TextField';
+// import Typography from '@mui/material/Typography';
 import React, { useEffect, useState } from "react";
 import '../App.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { getTodos } from "../redux/thunk/todoThunk";
+import { getTodos ,createTodo, updateTodos, deleteTodos,} from "../redux/thunk/todoThunk";
 import { todoSelector } from "../redux/slices/todoSlice";
 // import Admin from './Admin';
 // import Employees from './Employees';
@@ -30,17 +30,21 @@ const style = {
 const Todo = () => {
 
     const [posts, setPosts] = useState([]);
-    const [postsEdit, setPostsEdit] = useState([]);
-    const [input, setInput] = useState([]);
+    // const [postsEdit, setPostsEdit] = useState([]);
+    // const [input, setInput] = useState([]);
     const [open, setOpen] = React.useState(false);
     const [postID, setPostID] = React.useState("");
     //   const handleOpen = () => setOpen(true);
+    const [newTodos, setNewTodos] = useState('')
+  const [todosId, setTodosId] = useState('')
+
+//   const { todo } = useSelector(todoSelector)
 
 
     const handleClose = () => setOpen(false);
 
 
-    const apiEndPoint = "http://localhost:3003/posts";
+    // const apiEndPoint = "http://localhost:3003/posts";
 
 
 
@@ -69,6 +73,7 @@ const Todo = () => {
 
     // const { todos } = useSelector(state => state.todos)
     // console.log(todos,"Hello");
+
     const { todos } = useSelector(todoSelector)
     const dispatch = useDispatch()
     useEffect(() => {
@@ -77,26 +82,55 @@ const Todo = () => {
 
     }, [dispatch])
 
-    console.log(todos)
+    // console.log(todos)
 
 
 
 
 
-    const addPost = async (e) => {
-        const post = { title: input };
-        await axios.post(apiEndPoint, post);
-        setPosts([post, ...posts]);
-        e.preventDefault();
+    const handleSubmit = async (event) => {
+        const data= {
+            title: newTodos,
+           
+          }
+         dispatch(createTodo(data))
+         dispatch(getTodos())
+      
+
+        // const post = { title: input };
+        // await axios.post(apiEndPoint, post);
+        // setPosts([post, ...posts]);
+        event.preventDefault();
     };
 
+    const handleUpdate = (id, title) => {
+        
+         console.log(id, title)
+
+        setNewTodos(title)
+        setTodosId(id)
+
+        dispatch(updateTodos(id,title))
+        dispatch(getTodos)
+       
+};
+
+const handleSaveEdit =()=>{
+    const data= {
+      id: todosId,
+      title: newTodos,
+      
+    }
+   dispatch(updateTodos(data))
+   dispatch(getTodos())
+
+  }
+
+    // const handleUpdate = async () => {
+    //     setPosts(posts.filter((p) => p.id === postID ? p.title = postsEdit : p));
 
 
-    const handleUpdate = async () => {
-        setPosts(posts.filter((p) => p.id === postID ? p.title = postsEdit : p));
-
-
-    };
+    
 
     const handleGetID = async (post) => {
         setOpen(true)
@@ -105,16 +139,28 @@ const Todo = () => {
 
     };
 
-    const handleDelete = async (post) => {
-        setPosts(posts.filter((p) => p.id !== post));
+
+    const handleDelete = (id) => {
+        // console.log(id)
+        dispatch(deleteTodos(id))
+        dispatch(getTodos())
+      }
+
+    // const handleDelete = async (post) => {
+    //     setPosts(posts.filter((p) => p.id !== post));
 
 
-    };
+    // };
+
+    
+  const handleChange = (e) => {
+    setNewTodos( e.target.value)
+  }
 
     // if (posts.length = 0) return <h2> there are no post in the Database </h2>;
-    function inputHandler(e) {
-        setInput(e.target.value);
-    }
+    // function inputHandler(e) {
+    //     setInput(e.target.value);
+    // }
 
     // console.log("", postsEdit);
 
@@ -124,15 +170,15 @@ const Todo = () => {
         <>
             <div className="container">
 
-                <input type="text" placeholder="Enter post" onChange={inputHandler} />
-                <Modal
+                <input type="text" placeholder="Enter new Task" onChange={handleChange}/>
+                {/* <Modal
                     keepMounted
                     open={open}
                     onClose={handleClose}
                     aria-labelledby="keep-mounted-modal-title"
                     aria-describedby="keep-mounted-modal-description"
-                >
-                    <Box sx={style}>
+                > */}
+                    {/* <Box sx={style}>
                         <Typography id="keep-mounted-modal-title" variant="h6" component="h2">
                             Make Update
                         </Typography>
@@ -142,13 +188,16 @@ const Todo = () => {
                             value={postsEdit}
                             onChange={(event) => setPostsEdit(event.target.value)}
                             variant="filled"
-                        />
-                        <button onClick={handleUpdate} className="btn btn-primary btn-sm">
+                        /> */}
+                        {/* <button onClick={handleUpdate} className="btn btn-primary btn-sm">
                             Update
-                        </button>
-                    </Box>
-                </Modal>
-                <button onClick={addPost} className="btn btn-primary btn-sm">
+                        </button> */}
+                    {/* </Box>
+                </Modal> */}
+            <button  onClick={handleSaveEdit} className="btn btn-primary btn-sm">
+              Save Edit
+            </button>
+                <button onClick={handleSubmit} className="btn btn-primary btn-sm">
                     Add New Task
                 </button>
                 <table className="table">
@@ -160,20 +209,23 @@ const Todo = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {posts?.map((post, idx) => (
-                            <tr key={idx}>
-                                <td> {post.title} </td>
+                {todos?.map((element) => (
+                            <tr key={element.id}>
+                                <td> {element.title} </td>
                                 <td>
-                                    <button
-                                        onClick={() => handleGetID(post.id)}
+                                    <button 
+                                        value={element.title}
+                                        variant="success"
+                                        onClick={()=>handleUpdate(element.id, element.title)}
                                         className="btn btn-info btn-sm"
+
                                     >
                                         Update
                                     </button>
                                 </td>
                                 <td>
                                     <button
-                                        onClick={() => handleDelete(post.id)}
+                                        onClick={() => handleDelete(element.id)}
                                         className="btn btn-danger btn-sm"
                                     >
                                         Delete
