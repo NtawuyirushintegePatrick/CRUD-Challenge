@@ -68,7 +68,7 @@ border-radius: 5px;
  /* justify-content: flex-start; */
   
 }
-.container{
+.containerTodo{
   margin-top: 60px;
   border: 1 solid black;
 }
@@ -349,10 +349,10 @@ a {
   
 table {
   border: 1px solid rgb(12, 12, 12);
-  width: 800px;
+  width: 700px;
   height: 200px;
   margin-top: 20px;
-  margin-left: 20px;
+  margin-left: 0px;
 }
   
 th {
@@ -487,7 +487,7 @@ td {
   padding-right: 5%;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 0  0 0  0;
+  margin: 500px  0 0  0;
   background-color: #313333;
 }
 /* .card2{
@@ -936,10 +936,10 @@ font-weight: 500;
       margin: 0;
   }
   /* Bordered form */
-  form {
+  /* form {
       
       border: 3px solid #3f3d3d;
-    }
+    } */
     /* .bigcontainer{
       background-color: #04AA6D;
       border: 2px solid black;
