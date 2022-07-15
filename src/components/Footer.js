@@ -44,7 +44,7 @@ const Footer = () => {
             </div>
 
             <div className="pfoot">
-                <p className="pfooter">Patrick.co.ltd copyright</p>
+                <p className="pfooter">Klab.co.ltd copyright</p>
             </div>
 
         </>

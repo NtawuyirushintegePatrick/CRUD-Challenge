@@ -7,6 +7,7 @@ const Header= () => {
       <header className='head'>
       <h2>Klab EMS</h2>
       <div className='nav'>
+      <a href='home'>Home</a>
         <a href='register'>Register</a>
         {/* <a href='employees'>Employees</a> */}
         <a href='admin'>Admin</a>

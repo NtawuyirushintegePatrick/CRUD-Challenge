@@ -1,27 +1,30 @@
 import React from 'react'
 import '../App.css';
 
+
 const Home = () => {
   return (
     <>
+      <div className='home-container'>
+        <div className='home-cards'>
+          <div className='welcome-card'>
+            <p>
+              Welcome to Klab Employees
+              Managment system
+            </p>
+          </div>
+          <div className='welcome-card'>
+            <img src='pro.png'></img>
+          </div>
+        </div>
+        <div className='home-input-login'>
+          <div className='home-loginBtn'>
+            <button className='welcome-button'><a href="login">Go</a></button>
+          </div>
+        </div>
+      </div>
 
-    {/* <div className="form">
-     <form>
-       <div className="input-container">
-         <label>Username </label>
-         <input type="text" name="uname" required /> */}
-         {/* {renderErrorMessage("uname")} */}
-       {/* </div>
-       <div className="input-container">
-         <label>Password </label>
-         <input type="password" name="pass" required /> */}
-         {/* {renderErrorMessage("pass")} */}
-       {/* </div>
-       <div className="button-container">
-         <input type="submit" />
-       </div>
-     </form>
-   </div> */}
+
     </>
   )
 }

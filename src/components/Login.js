@@ -20,7 +20,7 @@ const Login = () => {
                     <button type="submit" className="registerbtn">Login</button>
                     </div>
                     <div className="container-signin">
-                        <p>Don't an account Register here. <a href="Register"><p1>Register</p1></a></p>
+                        <p>Don't an account Register here. <a href="Register"><p1><b>Register</b></p1></a></p>
                     </div>
                 </form>
             </div>
