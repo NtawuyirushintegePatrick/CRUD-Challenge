@@ -485,7 +485,7 @@ td {
 }
 .footer{
   /* border: 1px solid black; */
-  height: 500px;
+  height: 400px;
   margin: 10px;
   display: flex;
   text-align: center;
