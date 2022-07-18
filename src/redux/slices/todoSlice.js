@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { createTodo, deleteTodos, getTodos, updateTodos } from "../thunk/todoThunk";
+import { createTodo, deleteTodos, getTodos, saveEditTodos, updateTodos } from "../thunk/todoThunk";
 
 // import { fetchAllTodos } from "../thunk/todoThunk";
 
@@ -77,7 +77,9 @@ const todoSlice = createSlice({
     },
 
 
-        
+    [saveEditTodos.pending]: (state) => {
+      state.status = 'loading'
+  }, 
           },
         })
         

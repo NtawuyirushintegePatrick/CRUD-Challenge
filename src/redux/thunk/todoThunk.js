@@ -38,6 +38,7 @@ export const createTodo = createAsyncThunk('todos/createTodo', async (data, { re
   export const updateTodos = createAsyncThunk('todos/updateTodos', async (data, { rejectWithValue }) => {
     try {
         const id = data.id
+        // const title = data.title
         const newData = {
             title: data.title,
         }
@@ -54,6 +55,33 @@ export const createTodo = createAsyncThunk('todos/createTodo', async (data, { re
       return rejectWithValue(error.response.data)
     }
   }) 
+
+
+  export const saveEditTodos = createAsyncThunk('todos/saveEditTodos', async (data, { rejectWithValue }) => {
+    try {
+        const id = data.id
+        // const title = data.title
+        const newDatas = {
+            title: data.title,
+        }
+      const response = await axios.post(`http://localhost:3003/posts/${id}`, newDatas)
+
+     console.log(response)
+
+      return response.data
+     
+    } catch (error) {
+    //   if (!error.response) {
+    //     return rejectWithValue(error)
+    //   }
+      return rejectWithValue(error.response.data)
+    }
+  }) 
+
+
+
+
+
 
 
   export const deleteTodos = createAsyncThunk('todos/deleteTodos', async (id, { rejectWithValue }) => {

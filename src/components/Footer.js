@@ -34,7 +34,7 @@ const Footer = () => {
 
                 </div>
                 <div className="card2">
-                    <p>Email me: </p>
+                    <p>Reach on me: </p>
                     <input type="text" id="names" className="fullname" placeholder="Your full names" />
                     <input type="Email" id="mail" className="email" placeholder="Enter email..." />
                     <textarea id="comments" className="comment">Type your comment here.</textarea>

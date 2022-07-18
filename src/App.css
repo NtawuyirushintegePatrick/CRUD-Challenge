@@ -143,17 +143,15 @@ input[type="submit"]:hover {
   margin: 10px;
 }
 .form{
-  /* background-color: #6cf0c2; */
   width: 300px;
-  height: 300px;
+  height: 350px;
   margin-left: 500px;
   border-radius: 5px;
-  /* border: 1px solid black; */
   margin-top: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 * {box-sizing: border-box}
 
@@ -188,6 +186,13 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 
  /* justify-content: flex-start; */
   
 }
+
+/* .form2 .container2 .container-signin p1{
+  text-decoration:none;
+  text-decoration: wavy;
+  font-size: 15px;
+  font-weight: 400;
+} */
 
 /* Add padding to containers */
 .container2 {
@@ -1065,7 +1070,7 @@ font-weight: 500;
     .home-cards{
       /* border: 1px solid black; */
       margin: 40px;
-      width: 800px;
+      width: 900px;
       height: 300px;
       display:flex;
     }
@@ -1073,9 +1078,9 @@ font-weight: 500;
     .welcome-card{
       /* border: 1px solid black; */
       margin: 20px;
-      width: 350px;
-      height: 250px;
-      margin-left: 50px;
+      width: 400px;
+      height: 300px;
+      margin-left: 30px;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
 

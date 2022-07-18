@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from "react";
 import '../App.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { getTodos ,createTodo, updateTodos, deleteTodos,} from "../redux/thunk/todoThunk";
+import { getTodos, createTodo, updateTodos, deleteTodos, saveEditTodos } from "../redux/thunk/todoThunk";
 import { todoSelector } from "../redux/slices/todoSlice";
 // import Admin from './Admin';
 // import Employees from './Employees';
@@ -35,10 +35,12 @@ const Todo = () => {
     const [open, setOpen] = React.useState(false);
     const [postID, setPostID] = React.useState("");
     //   const handleOpen = () => setOpen(true);
-    const [newTodos, setNewTodos] = useState('')
-  const [todosId, setTodosId] = useState('')
+    const [newTodos, setNewTodos] = useState(null)
+    const [todosId, setTodosId] = useState(null)
+    //   const [todosId, setTodosId] = useState('')
+    //   const [getNewTodos,setGetNewTodos] = useState('')
 
-//   const { todo } = useSelector(todoSelector)
+    //   const { todo } = useSelector(todoSelector)
 
 
     const handleClose = () => setOpen(false);
@@ -89,13 +91,13 @@ const Todo = () => {
 
 
     const handleSubmit = async (event) => {
-        const data= {
+        const data = {
             title: newTodos,
-           
-          }
-         dispatch(createTodo(data))
-         dispatch(getTodos())
-      
+
+        }
+        dispatch(createTodo(data))
+        dispatch(getTodos())
+
 
         // const post = { title: input };
         // await axios.post(apiEndPoint, post);
@@ -103,34 +105,41 @@ const Todo = () => {
         event.preventDefault();
     };
 
+
+
     const handleUpdate = (id, title) => {
-        
-         console.log(id, title)
 
+        //  console.log(id, title)  
+        const data = {
+            id,
+            title
+        }
         setNewTodos(title)
-        setTodosId(id)
+        // setTodosId(id) 
 
-        dispatch(updateTodos(id,title))
+        dispatch(updateTodos(data))
         dispatch(getTodos)
-       
-};
 
-const handleSaveEdit =()=>{
-    const data= {
-      id: todosId,
-      title: newTodos,
-      
+    };
+
+
+
+    const handleSaveEdit = () => {
+        const data = {
+            id: todosId,
+            title: newTodos
+            //   role: 'employee'
+        }
+        dispatch(updateTodos(data))
+        dispatch(getTodos())
+
     }
-   dispatch(updateTodos(data))
-   dispatch(getTodos())
-
-  }
 
     // const handleUpdate = async () => {
     //     setPosts(posts.filter((p) => p.id === postID ? p.title = postsEdit : p));
 
 
-    
+
 
     const handleGetID = async (post) => {
         setOpen(true)
@@ -144,7 +153,7 @@ const handleSaveEdit =()=>{
         // console.log(id)
         dispatch(deleteTodos(id))
         dispatch(getTodos())
-      }
+    }
 
     // const handleDelete = async (post) => {
     //     setPosts(posts.filter((p) => p.id !== post));
@@ -152,10 +161,10 @@ const handleSaveEdit =()=>{
 
     // };
 
-    
-  const handleChange = (e) => {
-    setNewTodos( e.target.value)
-  }
+
+    const handleChange = (e) => {
+        setNewTodos(e.target.value)
+    }
 
     // if (posts.length = 0) return <h2> there are no post in the Database </h2>;
     // function inputHandler(e) {
@@ -170,7 +179,7 @@ const handleSaveEdit =()=>{
         <>
             <div className="containerTodo">
 
-                <input type="text" placeholder="Enter new Task" onChange={handleChange}/>
+                <input type="text" placeholder="Enter new Task" value={newTodos ? newTodos : handleSubmit} onChange={handleChange} />
                 {/* <Modal
                     keepMounted
                     open={open}
@@ -178,7 +187,7 @@ const handleSaveEdit =()=>{
                     aria-labelledby="keep-mounted-modal-title"
                     aria-describedby="keep-mounted-modal-description"
                 > */}
-                    {/* <Box sx={style}>
+                {/* <Box sx={style}>
                         <Typography id="keep-mounted-modal-title" variant="h6" component="h2">
                             Make Update
                         </Typography>
@@ -189,14 +198,14 @@ const handleSaveEdit =()=>{
                             onChange={(event) => setPostsEdit(event.target.value)}
                             variant="filled"
                         /> */}
-                        {/* <button onClick={handleUpdate} className="btn btn-primary btn-sm">
+                {/* <button onClick={handleUpdate} className="btn btn-primary btn-sm">
                             Update
                         </button> */}
-                    {/* </Box>
+                {/* </Box>
                 </Modal> */}
-            <button  onClick={handleSaveEdit} className="btn btn-primary btn-sm">
-              Save Edit
-            </button>
+                <button onClick={handleSaveEdit} value={newTodos} className="btn btn-primary btn-sm">
+                    Save Edit
+                </button>
                 <button onClick={handleSubmit} className="btn btn-primary btn-sm">
                     Add New Task
                 </button>
@@ -209,16 +218,15 @@ const handleSaveEdit =()=>{
                         </tr>
                     </thead>
                     <tbody>
-                {todos?.map((element) => (
+                        {todos?.map((element) => (
                             <tr key={element.id}>
                                 <td> {element.title} </td>
                                 <td>
-                                    <button 
+                                    <button
                                         value={element.title}
                                         variant="success"
-                                        onClick={()=>handleUpdate(element.id, element.title)}
+                                        onClick={() => handleUpdate(element.id, element.title)}
                                         className="btn btn-info btn-sm"
-
                                     >
                                         Update
                                     </button>
