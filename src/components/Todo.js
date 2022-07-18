@@ -203,11 +203,11 @@ const Todo = () => {
                         </button> */}
                 {/* </Box>
                 </Modal> */}
-                <button onClick={handleSaveEdit} value={newTodos} className="btn btn-primary btn-sm">
+                {/* <button onClick={handleSaveEdit} value={newTodos} className="btn btn-primary btn-sm">
                     Save Edit
-                </button>
+                </button> */}
                 <button onClick={handleSubmit} className="btn btn-primary btn-sm">
-                    Add New Task
+                    Add Task
                 </button>
                 <table className="table">
                     <thead>
